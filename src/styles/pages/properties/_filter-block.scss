@@ -1,0 +1,413 @@
+.property-listing__wrap {
+  display: flex;
+  margin-right: -24px;
+  margin-bottom: 160px;
+  @media (max-width: 1400px) {
+    margin-right: 0;
+    gap: 5px;
+  }
+  @media (max-width: 1200px) {
+    margin-bottom: 80px;
+    gap: 20px;
+  }
+  @media (max-width: 992px) {
+    margin-bottom: 60px;
+  }
+  @media (max-width: 576px) {
+    margin-bottom: 50px;
+  }
+}
+
+.property-filters {
+  max-width: 312px;
+  width: 25%;
+  padding-inline: 15px;
+  margin-left: 11px;
+  height: fit-content;
+  background-color: $primary-white;
+  border: 1px solid $green-3;
+  border-radius: 4px;
+  box-shadow: 0 0 24px 0 rgba(38, 65, 31, 0.12);
+  @media (max-width: 1400px) {
+    margin-left: 0;
+  }
+  @media (max-width: 992px) {
+    display: none;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    padding-inline: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+  }
+  &.open {
+    display: block;
+    z-index: 999;
+  }
+}
+
+.popup__close {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 24px;
+  height: 24px;
+
+  &-icon svg {
+    height: 24px;
+    width: 24px;
+  }
+  &.open {
+    display: flex;
+  }
+}
+
+.property-filters-overlay {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: #1e1f24;
+  opacity: 0;
+  transition: 0.35s ease;
+  z-index: -1;
+  @media (max-width: 992px) {
+    visibility: visible;
+    opacity: 0.7;
+  }
+}
+
+.filter__mobile {
+  display: none;
+
+  @media (max-width: 992px) {
+    display: block;
+  }
+}
+
+.property-filters__wrap {
+  position: relative;
+  padding-top: 23px;
+  padding-right: 13px;
+  @media (max-width: 1400px) {
+    padding: 20px 0 0;
+  }
+
+  @media (max-width: 992px) {
+    background-color: #fff;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 80vh;
+    max-width: 400px;
+    min-height: 40vh;
+    width: 100%;
+    padding: 40px 25px;
+  }
+
+  @media (max-width: 576px) {
+    max-width: 95%;
+  }
+}
+
+.property-filters__title {
+  font-family: $font--secondary;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: $gray-12;
+  margin-bottom: 14px;
+
+  @media (max-width: 992px) {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+}
+
+// Accordion
+
+.property-filters__accordion {
+  padding-bottom: 38px;
+  @media (max-width: 992px) {
+    padding-bottom: 10px;
+    max-height: 60vh;
+    padding-right: 5px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #d2f4c9 #fff;
+  }
+}
+
+.property-filters__accordion-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: $font--secondary;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: $gray-12;
+  outline: none;
+  border: none;
+  border-top: 1px solid $green-3;
+  background-color: $primary-white;
+  padding: 20px 0;
+  transition: all 0.35s ease;
+
+  .property-filters__accordion-btn-icon {
+    transition: all 0.35s ease;
+    @media (max-width: 992px) {
+      display: none !important;
+    }
+  }
+
+  &.active {
+    .property-filters__accordion-btn-icon {
+      transform: rotate3d(1, 0, 0, -180deg);
+    }
+  }
+
+  svg path {
+    transition: all 0.35s ease;
+  }
+
+  @media (min-width: 1200px) {
+    &:hover {
+      color: $green-8;
+      svg path {
+        stroke: $green-8;
+      }
+    }
+  }
+}
+
+.property-filters__accordion-content {
+  margin-bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: all 0.35s ease;
+}
+
+.property-filters__accordion-content.active {
+  margin-bottom: 9px;
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+
+// Checkbox inputs
+.input-checkbox {
+  margin-bottom: 14px;
+  input {
+    display: none;
+    transition: all 0.35s ease;
+    &:checked + label {
+      color: $green-8;
+      transition: all 0.35s ease;
+    }
+    &:checked + label::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 4px;
+      left: 5px;
+      width: 4px;
+      height: 7px;
+      border: solid $primary-white;
+      border-width: 0 1px 1px 0;
+      transform: rotate(45deg);
+      transition: all 0.35s ease;
+    }
+    &:checked + label::before {
+      background-color: $green-8;
+      border-color: $green-8;
+      transition: all 0.35s ease;
+    }
+  }
+
+  label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-family: $font--primary, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: $gray-12;
+    transition: all 0.35s ease;
+    &::before {
+      content: "";
+      border: 1px solid $green-6;
+      height: 16px;
+      width: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+      border-radius: 2px;
+      position: relative;
+      margin-right: 4px;
+      transform: translate(-1px, -1px);
+      transition: all 0.35s ease;
+      @media (max-width: 992px) {
+        transform: translate(0, 0);
+      }
+    }
+    @media (max-width: 992px) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  label[for="hot-area"]::before,
+  label[for="priced-under-100k"]::before,
+  label[for="vacant-property"]::before,
+  label[for="occupied-property"]::before {
+    margin-right: 7px;
+  }
+}
+
+// Range inputs
+.range-inputs {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.input-range {
+  label {
+    font-family: $font--primary;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: $gray-12;
+  }
+
+  input {
+    outline: none;
+    display: block;
+    border: 1px solid $green-6;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 6px;
+    min-height: 32px;
+    font-family: $font--primary;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: $gray-12;
+    max-width: 124.5px;
+    transition: all 0.35s ease;
+    @media (max-width: 1400px) {
+      max-width: 112.5px;
+    }
+    @media (max-width: 1200px) {
+      max-width: 91.5px;
+    }
+    @media (max-width: 992px) {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &::placeholder {
+      color: $gray-8;
+    }
+    &:focus {
+      border: 1px solid $green-8;
+      outline: none;
+    }
+    &.error {
+      border-color: $primary-error;
+    }
+    @media (min-width: 1200px) {
+      &:hover {
+        border: 1px solid $green-8;
+        outline: none;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    width: 48%;
+  }
+}
+
+.input-range-line {
+  display: inline-block;
+  height: 24px;
+  margin: 0 9px;
+  font-size: 12px;
+  line-height: 14px;
+  color: $gray-12;
+}
+
+.error-notification {
+  color: $primary-error;
+  font-family: $font--primary, sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1;
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s ease;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Clear filters button
+.property-filters__btn {
+  min-width: 122px;
+  border-radius: 50px;
+  background-color: $green-3;
+  border: 1px solid $green-3;
+  font-family: $font--secondary;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: $green-11;
+  padding: 3px 10px;
+  margin-top: 10px;
+  margin-right: 20px;
+  transition: all 0.35s ease;
+
+  @media (min-width: 1200px) {
+    &:hover {
+      background-color: $gray-1;
+      border-color: $gray-1;
+      color: $green-8;
+      box-shadow: 0 8px 24px 0 rgba(38, 65, 31, 0.16);
+    }
+  }
+}
+
+.property-filters__search-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 122px;
+  padding: 3px 10px;
+  &.open {
+    display: inline-block;
+  }
+}

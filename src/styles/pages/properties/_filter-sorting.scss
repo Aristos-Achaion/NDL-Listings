@@ -1,0 +1,129 @@
+.property-listing-block {
+  width: 75%;
+  padding-inline: 15px;
+  @media (max-width: 1400px) {
+    padding-inline: 0;
+  }
+
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+}
+
+.property-listing-block__top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.property-listing-block__sort {
+  margin-left: auto;
+  max-width: fit-content;
+}
+
+.filter-sorting {
+  position: relative;
+}
+
+.filter-sorting__holder {
+  display: flex;
+  align-items: center;
+}
+
+.filter-sorting__holder-text {
+  color: #1e1f24;
+  font-family: $font--primary, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-right: 5px;
+}
+
+.filter-sorting__btn {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  border: none;
+  outline: none;
+  color: #1e1f24;
+  font-family: $font--primary, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.filter-sorting__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  height: 20px;
+  width: 15px;
+
+  svg {
+    width: 14px;
+    height: 16px;
+    display: flex;
+    font-size: 12px;
+    color: #1e1f24;
+    transition: all 0.35s ease;
+  }
+
+  &.active-dropdown {
+    svg {
+      transform: rotate3d(1, 0, 0, 180deg);
+    }
+  }
+}
+
+// Filter Sorting List
+.filter-sorting__list {
+  position: absolute;
+  display: block;
+  right: 0;
+  top: 100%;
+  width: 255px;
+  max-height: 300px;
+  overflow: auto;
+  margin: 0;
+  list-style-type: none;
+  transform-origin: top left;
+  transform: scale(1, 0);
+  transition: all 0.3s ease-in-out;
+  z-index: 5;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 8px 0 rgba(20, 49, 81, 0.059);
+  scrollbar-width: thin;
+  scrollbar-color: $green-4 #fff;
+
+  li {
+    color: #1e1f24;
+    font-family: $font--primary, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 8px 5px;
+    transition: all 0.35s ease;
+    border-bottom: 1px solid $green-4;
+    cursor: pointer;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    @media (min-width: 1200px) {
+      &:hover {
+        color: $green-8;
+      }
+    }
+  }
+
+  &.active-dropdown {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}

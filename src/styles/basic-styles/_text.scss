@@ -1,0 +1,134 @@
+.heading {
+  font-family: $font--heading, sans-serif;
+  font-size: 60px;
+  line-height: 1.133em;
+  color: $gray-12;
+  &__secondary {
+    font-family: $font--heading, sans-serif;
+    font-size: 50px;
+    line-height: 1.2em;
+
+    &--white {
+      @extend .heading__secondary;
+      color: $gray-1;
+    }
+    &--black {
+      @extend .heading__secondary;
+      color: $gray-12;
+    }
+  }
+  &__tertiary {
+    font-family: $font--heading, sans-serif;
+    font-size: 40px;
+    line-height: 1.2em;
+    &--white {
+      @extend .heading__tertiary;
+      color: $gray-1;
+      @media (max-width: 450px) {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.subheading {
+  font-family: $font--primary, sans-serif;
+  font-size: 24px;
+  color: $gray-12;
+  line-height: 1.5em;
+  &__card {
+    @extend .subheading;
+    font-family: $font--secondary, sans-serif;
+    line-height: 1.33em;
+  }
+}
+
+.text__p {
+  font-family: $font--primary, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: $gray-12;
+}
+
+@media (max-width: 1400px) {
+  .heading {
+    font-size: 50px;
+    &__secondary {
+      font-size: 40px;
+    }
+    &__tertiary {
+      font-size: 38px;
+    }
+  }
+
+  .subheading {
+    font-size: 18px;
+  }
+  .subheading__card {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .heading {
+    font-size: 42px;
+    &__secondary {
+      font-size: 32px;
+    }
+    &__tertiary {
+      font-size: 32px;
+    }
+  }
+  .subheading__card {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 992px) {
+  .heading {
+    font-size: 38px;
+    &__secondary {
+      font-size: 28px;
+    }
+    &__tertiary {
+      font-size: 28px;
+    }
+  }
+  .subheading__card {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heading {
+    font-size: 24px;
+    &__secondary {
+      font-size: 24px;
+    }
+    &__tertiary {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .heading__tertiary {
+    font-size: 20px;
+  }
+}
+
+.footer__text {
+  font-family: $font--primary, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $blue-1;
+  max-width: 303px;
+  letter-spacing: 0.1px;
+}
+
+::selection {
+  background-color: $primary-black;
+  color: $primary-white;
+}

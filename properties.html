@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NDL Listings</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/src/styles/index.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="overlay" id="overlay"></div>
+    <div class="container">
+      <div class="header__wrapper">
+        <a href="index.html"><img class="header__logo" src="/src/assets/img/logo.png" alt="company logo" /></a>
+
+        <nav class="header__nav">
+          <ul>
+            <li><a class="active" href="#">Properties</a></li>
+            <li><a href="#">Buyers</a></li>
+            <li><a href="#">Sellers</a></li>
+            <li><a href="#">Wholesalers</a></li>
+          </ul>
+        </nav>
+        <div class="header__btns">
+          <a class="btn--transparent" href="#"><span class="btn-icon"><img class="user-logo"
+                src="/src/assets/img/user.png" alt="user logo" />
+              <img class="user-logo--white" src="./src/assets/img/user-white.png"
+                alt="user logo white" /></span>Login</a>
+          <a class="btn--green" href="#"><span>Sign up</span></a>
+        </div>
+        <div class="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header End-->
+
+  <main>
+    <!-- Search block -->
+    <div class="search-block">
+      <div class="container">
+        <div class="search-block__wrap">
+          <h1 class="search-block__title heading__secondary">
+            Find, buy, sell
+          </h1>
+          <p class="search-block__text text__p">
+            The best off-market CRE deals, quality assured by real estate
+            professionals
+          </p>
+          <div class="search-block__search-wrap">
+            <div class="search-block__search-input">
+              <input type="text" class="property__search-input" placeholder="Search by location" />
+            </div>
+            <button class="btn--green search-block__search-btn" type="submit">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Search block End-->
+    <!-- Property Listing -->
+    <div class="property-listing">
+      <div class="container">
+        <div class="property-listing__wrap">
+          <!-- Property Filters -->
+          <div class="property-filters">
+            <div class="property-filters-overlay"></div>
+            <div class="property-filters__wrap">
+              <div class="popup__close">
+                <span class="popup__close-icon">
+                  <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <g id="SVGRepo_iconCarrier">
+                      <rect width="24" height="24" fill="#e4f9de" />
+                      <path d="M7 17L16.8995 7.10051" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M7 7.00001L16.8995 16.8995" stroke="#000000" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </g>
+                  </svg>
+                </span>
+              </div>
+              <h2 class="property-filters__title">Filters</h2>
+              <div class="property-filters__accordion">
+                <div class="property-filters__accordion-wrap">
+                  <button class="property-filters__accordion-btn active" aria-label="Property type accordion button">
+                    Property type
+                    <span class="property-filters__accordion-btn-icon">
+                      <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="property-filters__accordion-content active">
+                    <fieldset>
+                      <div class="input-checkbox">
+                        <input type="checkbox" id="multifamily" name="multifamily" />
+                        <label for="multifamily"> Multifamily </label>
+                      </div>
+                      <div class="input-checkbox">
+                        <input type="checkbox" id="family" name="family" />
+                        <label for="family"> 1-4 family </label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <div class="property-filters__accordion-wrap">
+                  <button class="property-filters__accordion-btn active" aria-label="Square feet accordion button">
+                    Square feet
+                    <span class="property-filters__accordion-btn-icon">
+                      <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="property-filters__accordion-content active">
+                    <div class="range-inputs">
+                      <div class="input-range">
+                        <label for="minSquareFeet">Min</label>
+                        <input class="input-small min" type="number" name="minSquareFeet" id="minSquareFeet"
+                          placeholder="e.g.1000 sq.ft" />
+                      </div>
+                      <span class="input-range-line">-</span>
+                      <div class="input-range">
+                        <label for="maxSquareFeet">Max</label>
+                        <input class="input-small max" type="number" name="maxSquareFeet" id="maxSquareFeet"
+                          placeholder="e.g.5000 sq.ft" />
+                      </div>
+                      <span id="errorMsgSquareFeet" class="error-notification">Max must be greater than minimum.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="property-filters__accordion-wrap">
+                  <button class="property-filters__accordion-btn active" aria-label="Amount of units accordion button">
+                    Amount of units
+
+                    <span class="property-filters__accordion-btn-icon">
+                      <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="property-filters__accordion-content active">
+                    <div class="range-inputs">
+                      <div class="input-range">
+                        <label for="minAmount">Min</label>
+                        <input class="input-small min" type="number" name="minAmount" id="minAmount" placeholder="1" />
+                      </div>
+                      <span class="input-range-line">-</span>
+                      <div class="input-range">
+                        <label for="maxAmount">Max</label>
+                        <input class="input-small max" type="number" name="maxAmount" id="maxAmount"
+                          placeholder="e.g.10" />
+                      </div>
+                      <span id="errorMsgAmount" class="error-notification">Max must be greater than minimum.</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="propertyfilters__accordion-wrap">
+                  <button class="property-filters__accordion-btn active" aria-label="Featured deals accordion button">
+                    Featured deals
+                    <span class="property-filters__accordion-btn-icon">
+                      <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="property-filters__accordion-content active">
+                    <fieldset>
+                      <div class="input-checkbox">
+                        <input type="checkbox" id="priced-under-100k" name="priced-under-100k" />
+                        <label for="priced-under-100k">Priced under $100k</label>
+                      </div>
+                      <div class="input-checkbox">
+                        <input type="checkbox" id="hot-area" name="hot-area" />
+                        <label for="hot-area">Hot area</label>
+                      </div>
+                      <div class="input-checkbox">
+                        <input type="checkbox" id="vacant-property" name="vacant-property" />
+                        <label for="vacant-property">Vacant property</label>
+                      </div>
+                      <div class="input-checkbox">
+                        <input type="checkbox" id="occupied-property" name="occupied-property" />
+                        <label for="occupied-property">Occupied property</label>
+                      </div>
+                    </fieldset>
+                  </div>
+                </div>
+                <button class="property-filters__btn" aria-label="Clear filters button">
+                  Clear filters
+                </button>
+                <button class="btn--green property-filters__search-btn" aria-label="Search filters button">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Property Filters End-->
+          <!-- Property Listing Block -->
+          <div class="property-listing-block">
+            <div class="property-listing-block__top">
+              <div class="filter__mobile">
+                <span class="filter__mobile-icon">
+                  <svg fill="#133051" width="24px" height="24px" viewBox="-3.2 -3.2 38.40 38.40" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)" stroke="#133051">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+                      stroke-width="0.064" />
+
+                    <g id="SVGRepo_iconCarrier">
+                      <title>filters</title>
+                      <path
+                        d="M31.078 1.366c-0.221-0.371-0.621-0.616-1.078-0.616-0 0-0 0-0 0h-22c-0.69 0-1.25 0.56-1.25 1.25 0 0.223 0.058 0.432 0.16 0.613l-0.003-0.006 7.7 13.859v4.391c0 0.486 0.278 0.908 0.684 1.114l0.007 0.003 6.285 3.143c0.163 0.084 0.355 0.133 0.559 0.133 0.243 0 0.47-0.070 0.661-0.191l-0.005 0.003c0.359-0.223 0.594-0.615 0.594-1.062 0-0 0-0.001 0-0.001v0-7.533l7.699-13.859c0.1-0.175 0.159-0.385 0.159-0.609 0-0.233-0.064-0.452-0.176-0.638l0.003 0.006zM21.051 15.535c-0.099 0.175-0.158 0.384-0.158 0.607v5.834l-3.785-1.893v-3.941c0-0 0-0.001 0-0.001 0-0.223-0.058-0.432-0.16-0.613l0.003 0.006-6.826-12.285h17.751zM14.214 22.75c-0.69 0-1.25 0.56-1.25 1.25v3.977l-2.928-1.463v-3.299c0-0 0-0.001 0-0.002 0-0.222-0.058-0.431-0.16-0.612l0.003 0.006-5.755-10.357h5.32c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0h-7.444c-0.69 0-1.25 0.56-1.25 1.251 0 0.223 0.058 0.432 0.16 0.613l-0.003-0.006 6.629 11.932v3.746c0 0.486 0.278 0.907 0.683 1.114l0.007 0.003 5.428 2.715c0.163 0.084 0.356 0.133 0.56 0.133 0.243 0 0.47-0.070 0.662-0.191l-0.005 0.003c0.358-0.223 0.593-0.615 0.593-1.062 0-0 0-0 0-0.001v0-6c-0-0.69-0.56-1.25-1.25-1.25h-0z" />
+                    </g>
+                  </svg>
+                </span>
+              </div>
+              <div class="property-listing-block__sort">
+                <div class="filter-sorting">
+                  <div class="filter-sorting__holder">
+                    <span class="filter-sorting__holder-text">Sort by:</span>
+                    <button role="button" class="filter-sorting__btn" aria-label="Sort button">
+                      <span>Default sorting</span>
+                      <span class="filter-sorting__icon">
+                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 1.5L6 6.5L11 1.5" stroke="#133051" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
+                  <ul class="filter-sorting__list">
+                    <li class="list-item" aria-label="Sort by default sorting options">
+                      Sort by
+                      <span data-value="1">default sorting</span>
+                    </li>
+                    <li class="list-item" aria-label="Sort by latest options">
+                      Sort by
+                      <span data-value="2">oldest</span>
+                    </li>
+                    <li class="list-item" aria-label="Sort by current bid: low to high options">
+                      Sort by current bid:
+                      <span data-value="3">low to high</span>
+                    </li>
+                    <li class="list-item" aria-label="Sort by current bid: high to low options">
+                      Sort by current bid:
+                      <span data-value="4">high to low</span>
+                    </li>
+                    <li class="list-item" aria-label="Sort by auction by ending soonest options">
+                      Sort by auction by
+                      <span data-value="5">ending soonest</span>
+                    </li>
+                    <li class="list-item" aria-label="Sort by auction by recently started options">
+                      Sort by auction by
+                      <span data-value="6">recently started</span>
+                    </li>
+                    <li class="list-item" aria-label="Sort by auction by most active options">
+                      Sort by auction by
+                      <span data-value="7">most active</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="property-cards"></div>
+            <div class="no-results">
+              <div class="no-results__img">
+                <img src="./src/assets/img/buidling icon.png" alt="Building icon" />
+              </div>
+              <h2 class="no-results__title">No results found</h2>
+              <p class="no-results__content">
+                Try adjusting your search or filter to find what are you
+                looking for.
+              </p>
+            </div>
+            <div class="pagination__holder"></div>
+          </div>
+          <!-- Property Listing Block End-->
+        </div>
+      </div>
+    </div>
+    <!-- Property Listing End-->
+  </main>
+  <!-- Footer -->
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__wrap">
+        <div class="footer__branding">
+          <div class="footer__logo">
+            <a href="index.html">
+              <img class="footer__logo-img" src="/src/assets/img/company-logo-footer.png" alt="NDL Listings Logo"
+                title="NDL Listings" />
+            </a>
+          </div>
+          <p class="footer__text">
+            The best off-market CRE deals, quality assured by real estate
+            professionals.
+          </p>
+        </div>
+        <div class="footer__link-list">
+          <ul>
+            <li class="footer__link">
+              <a href="properties.html" aria-label="Properties link">Properties</a>
+            </li>
+            <li class="footer__link">
+              <a href="#" aria-label="Buyers link">Buyers</a>
+            </li>
+            <li class="footer__link">
+              <a href="#" aria-label="Sellers link">Sellers</a>
+            </li>
+            <li class="footer__link">
+              <a href="#" aria-label="Wholesalers link">Wholesalers</a>
+            </li>
+            <li class="footer__link">
+              <a href="#" aria-label="Login link">Login</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__info">
+          <ul class="footer__info-contact">
+            <li class="footer__link">
+              <a href="https://www.google.com/maps/place/New+York+Marriott+Marquis/@40.7585862,-73.9883951,17z/data=!3m1!5s0x89c258f52ad45a79:0x8131f549e8af76f4!4m9!3m8!1s0x89c2585500e85589:0x18f39d1f8ee2a312!5m2!4m1!1i2!8m2!3d40.7585862!4d-73.9858202!16zL20vMDYyd2My?entry=ttu"
+                aria-label="Address link" target="_blank">New York Marriott Marquis, NY</a>
+            </li>
+            <li class="footer__link">
+              <a href="tel:900789789" aria-label="Phone link">900-789-789</a>
+            </li>
+            <li class="footer__link">
+              <a href="mailto:offmarketdeals@info.com" aria-label="Email link">offmarketdeals@info.com</a>
+            </li>
+          </ul>
+          <ul class="footer__info-social">
+            <li class="footer__info-social-link">
+              <a href="https://www.facebook.com/NDLFunding/?_rdr" aria-label="Facebook link">
+                <span class="footer__info-social-icon">
+                  <svg width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.0075 20.005H6.68V11.06H9.53167L10 7.50499H6.68V5.04666C6.6368 4.60642 6.74721 4.16478 6.9925 3.79666C7.18372 3.61654 7.41249 3.48104 7.66235 3.39992C7.91221 3.31879 8.17694 3.29406 8.4375 3.32749H10.3125V0.16166C9.40471 0.0588618 8.49192 0.006559 7.57833 0.00499308C6.96898 -0.0238077 6.36017 0.0722137 5.78926 0.287165C5.21835 0.502116 4.69738 0.831462 4.25833 1.25499C3.82024 1.70804 3.48251 2.2483 3.26713 2.84058C3.05176 3.43286 2.96358 4.06386 3.00833 4.69249V7.50499H0V11.06H3.0075V20.005Z"
+                      fill="#ACE09E" />
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li class="footer__info-social-link">
+              <a href="https://www.linkedin.com/company/ndl-fund" aria-label="LinkedIn link">
+                <span class="footer__info-social-icon">
+                  <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3.71521 16.6383V5.53334H0.261042V16.6383H3.71521ZM2.00688 4.01084C2.27005 4.01272 2.53085 3.96101 2.7734 3.85887C3.01595 3.75672 3.23517 3.60626 3.41771 3.41667C3.60625 3.23316 3.75599 3.01364 3.85806 2.77114C3.96013 2.52864 4.01243 2.26811 4.01187 2.005C3.99847 1.4767 3.78629 0.972891 3.41771 0.594171C3.03899 0.225585 2.53518 0.0134075 2.00688 4.41497e-06C1.74377 -0.000553405 1.48324 0.0517536 1.24074 0.153821C0.998242 0.255888 0.778721 0.405634 0.595208 0.594171C0.405513 0.776803 0.255001 0.996157 0.152849 1.23886C0.0506964 1.48156 -0.000955621 1.74252 0.00104166 2.00584C-0.00788237 2.26998 0.0406205 2.53292 0.143202 2.7765C0.245784 3.02008 0.400001 3.23849 0.595208 3.41667C0.773478 3.61199 0.99203 3.76627 1.23576 3.86885C1.47949 3.97144 1.74259 4.01988 2.00688 4.01084ZM16.6394 16.6383V10.5475C16.7199 9.24201 16.4643 7.93767 15.8969 6.75917C15.5134 6.23458 15.0004 5.8185 14.4079 5.55163C13.8154 5.28475 13.1639 5.17623 12.5169 5.23667C11.7795 5.22843 11.0556 5.43488 10.4335 5.83084C9.92499 6.11113 9.51286 6.53837 9.25104 7.05667H9.21354V5.53334H5.90604V16.6383H9.32271V11.1383C9.27904 10.4614 9.40687 9.7844 9.69438 9.17C9.8523 8.8716 10.0959 8.62724 10.3938 8.46835C10.6916 8.30945 11.0302 8.24328 11.366 8.27834C11.7039 8.25376 12.0408 8.33744 12.3279 8.51724C12.615 8.69705 12.8373 8.96364 12.9627 9.27834C13.1406 9.90601 13.2157 10.5583 13.1852 11.21V16.6325L16.6394 16.6383Z"
+                      fill="#ACE09E" />
+                  </svg>
+                </span>
+              </a>
+            </li>
+            <li class="footer__info-social-link">
+              <a href="https://www.facebook.com/NDLFunding/?_rdr" aria-label="Instagram link">
+                <span class="footer__info-social-icon">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.54167 4.15667C9.30648 4.16997 10.055 4.38006 10.715 4.76667C11.3905 5.13713 11.9462 5.69281 12.3167 6.36833C12.7032 7.02838 12.9133 7.77686 12.9267 8.54167C12.9186 9.31931 12.7083 10.0815 12.3167 10.7533C11.9461 11.4286 11.3904 11.984 10.715 12.3542C10.0451 12.7293 9.29024 12.9262 8.5225 12.9262C7.75476 12.9262 6.99987 12.7293 6.33 12.3542C5.65445 11.9837 5.09876 11.4281 4.72833 10.7525C4.35331 10.0826 4.15639 9.32772 4.15639 8.56C4.15639 7.79228 4.35331 7.03739 4.72833 6.3675C5.09978 5.69179 5.65666 5.13636 6.33333 4.76667C7.00418 4.37547 7.76514 4.16528 8.54167 4.15667ZM8.54167 11.4017C9.29985 11.4006 10.0267 11.0989 10.5628 10.5628C11.0989 10.0267 11.4006 9.29985 11.4017 8.54167C11.4006 7.78349 11.0989 7.05667 10.5628 6.52056C10.0267 5.98444 9.29985 5.68277 8.54167 5.68167C7.78349 5.68277 7.05667 5.98444 6.52056 6.52056C5.98444 7.05667 5.68277 7.78349 5.68167 8.54167C5.66954 8.91884 5.73813 9.29426 5.88286 9.64277C6.02758 9.99129 6.2451 10.3049 6.52083 10.5625C6.77847 10.8382 7.09205 11.0558 7.44056 11.2005C7.78908 11.3452 8.16449 11.4138 8.54167 11.4017ZM14.1467 3.96583C14.1432 3.69403 14.0336 3.43435 13.8414 3.24222C13.6491 3.0501 13.3893 2.94074 13.1175 2.9375C12.9823 2.93542 12.848 2.96146 12.7234 3.01396C12.5987 3.06646 12.4863 3.14429 12.3933 3.2425C12.2939 3.33457 12.2153 3.44679 12.1627 3.57167C12.1101 3.69655 12.0847 3.83121 12.0883 3.96667C12.0779 4.10236 12.1001 4.23857 12.153 4.36396C12.2059 4.48934 12.288 4.60027 12.3925 4.6875C12.48 4.79254 12.5915 4.87505 12.7175 4.92812C12.8435 4.98119 12.9804 5.00327 13.1167 4.9925C13.2471 4.99938 13.3772 4.97534 13.4966 4.92233C13.6159 4.86933 13.721 4.78886 13.8033 4.6875C13.9982 4.49416 14.1196 4.23898 14.1467 3.96583ZM17.045 4.995C17.045 5.71917 17.0833 6.90167 17.0833 8.54167C17.0833 10.2192 17.045 11.4017 17.0075 12.125C16.9774 12.7574 16.8751 13.3842 16.7025 13.9933C16.4757 14.6248 16.111 15.1979 15.635 15.6708C15.1676 16.1264 14.6085 16.4773 13.995 16.7C13.3791 16.9048 12.737 17.0204 12.0883 17.0433C11.3642 17.0817 10.1817 17.0817 8.5425 17.0817C6.865 17.0817 5.6825 17.0817 4.95917 17.0433C4.31872 17.0276 3.68614 16.8984 3.09083 16.6617C2.45737 16.477 1.88051 16.136 1.41333 15.67C0.948329 15.1957 0.595769 14.623 0.381667 13.9942C0.176753 13.3915 0.0610849 12.762 0.0383333 12.1258C0 11.4017 0 10.2192 0 8.54167C0 6.90167 0 5.72 0.0383333 4.995C0.0613399 4.34633 0.176954 3.70428 0.381667 3.08833C0.604522 2.47511 0.955351 1.91634 1.41083 1.44917C1.88378 0.973165 2.45683 0.608499 3.08833 0.381667C3.69773 0.209087 4.32486 0.106756 4.9575 0.0766667C5.68167 0.0383333 6.86333 0 8.54167 0C10.1817 0 11.3633 0.0383333 12.0875 0.0766667C12.7324 0.10705 13.3719 0.209351 13.9942 0.381667C14.6092 0.619444 15.1677 0.983117 15.634 1.44937C16.1002 1.91562 16.4639 2.47415 16.7017 3.08917C16.8697 3.71361 16.9846 4.35117 17.045 4.995ZM15.2117 13.5783C15.3918 12.9059 15.4941 12.215 15.5167 11.5192C15.5167 10.985 15.555 10.1858 15.555 9.155V7.93167C15.555 6.9025 15.5167 6.09833 15.5167 5.5675C15.4941 4.8717 15.3918 4.18079 15.2117 3.50833C15.0667 3.13688 14.8465 2.79943 14.5648 2.51719C14.2832 2.23496 13.9462 2.01404 13.575 1.86833C12.9025 1.68826 12.2116 1.58592 11.5158 1.56333C10.9442 1.56333 10.1433 1.525 9.15167 1.525H7.93167C6.9025 1.525 6.09833 1.56333 5.5675 1.56333C4.87171 1.58593 4.1808 1.68827 3.50833 1.86833C3.13318 2.0078 2.7925 2.22648 2.50949 2.50949C2.22648 2.7925 2.0078 3.13318 1.86833 3.50833C1.6692 4.17671 1.5665 4.8701 1.56333 5.5675C1.525 6.13917 1.525 6.9375 1.525 7.93167V9.15167C1.525 10.1808 1.525 10.985 1.56333 11.5158C1.56649 12.2132 1.66919 12.9066 1.86833 13.575C2.0079 13.95 2.22663 14.2905 2.50963 14.5734C2.79264 14.8562 3.13327 15.0748 3.50833 15.2142C4.17663 15.4139 4.87001 15.5171 5.5675 15.5208C6.10167 15.5592 6.90083 15.5592 7.93167 15.5592H9.15167C10.1808 15.5592 10.985 15.5592 11.5158 15.5208C12.2132 15.5177 12.9066 15.415 13.575 15.2158C13.9467 15.0704 14.2843 14.8495 14.5664 14.5671C14.8485 14.2847 15.0691 13.9469 15.2142 13.575L15.2117 13.5783Z"
+                      fill="#ACE09E" />
+                  </svg>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">
+        <p>
+          Copyright © 2024 NDL Listings. All rights reserved.
+          <span>Project by
+            <a href="https://www.forwardslashny.com/" target="_blank"
+              aria-label="Forwardslash link">Forwardslash</a></span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Footer End-->
+
+  <script src="/src/js/jquery-3.7.1.slim.js"></script>
+  <script src="/src/js/stickyHeader.js"></script>
+  <script src="/src/js/mobileMenuTrigger.js"></script>
+  <script src="/src/js/accordion.js"></script>
+  <script src="src/js/inputFieldsValidator.js"></script>
+  <script src="src/js/clearBtn.js"></script>
+  <script src="/src/js/dropdownHandler.js"></script>
+  <script src="/src/js/displayingPropertyCards.js"></script>
+  <script src="./src/js/mobileFilterHandler.js"></script>
+</body>
+
+</html>

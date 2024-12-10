@@ -1,0 +1,93 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  min-height: 1092px;
+  background: linear-gradient(
+    to bottom,
+    rgba(251, 254, 250, 1),
+    rgba(245, 251, 244, 1)
+  );
+}
+
+// Hiding arrow spinners on number inputs
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Internet Explorer 10+ */
+input[type="number"] {
+  -ms-appearance: textfield;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1350px;
+  }
+}
+
+.container.container--lg {
+  max-width: 1342px !important;
+  @media (max-width: 1400px) {
+    max-width: 1140px !important;
+  }
+  @media (max-width: 1200px) {
+    max-width: 800px !important;
+  }
+  @media (max-width: 992px) {
+    max-width: 720px !important;
+  }
+  @media (max-width: 768px) {
+    max-width: 540px !important;
+  }
+}
